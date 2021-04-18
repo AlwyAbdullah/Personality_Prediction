@@ -29,18 +29,6 @@ class Home extends CI_Controller
                 while (($data = fgetcsv($csv_file, 1461, ",")) !== FALSE) {
                     list($col1, $col2, $col3, $col4, $col5, $col6, $col7, $col8, $col9, $col10, $col11, $col12) = $data;
                     if ($col1 == $date) {
-                        // echo 'Date: ' . $col1 . '<br />';
-                        // echo 'Beras Bengawan: ' . $col2 . '<br />';
-                        // echo 'Gula Pasir: ' . $col3 . '<br />';
-                        // echo 'Minyak Goreng Bimoli 2L: ' . $col4 . '<br />';
-                        // echo 'Daging Sapi: ' . $col5 . '<br />';
-                        // echo 'Daging Ayam Broiler: ' . $col6 . '<br />';
-                        // echo 'Telur Ayam Ras: ' . $col7 . '<br />';
-                        // echo 'Susu Bubuk Indomilk: ' . $col8 . '<br />';
-                        // echo 'Garam Beryodium Halus: ' . $col9 . '<br />';
-                        // echo 'Cabe Rawit: ' . $col10 . '<br />';
-                        // echo 'Bawang Merah: ' . $col11 . '<br />';
-                        // echo 'Bawang Putih: ' . $col12 . '<br />';
                         $arr['data_harga'] = [$col1, $col2, $col3, $col4, $col5, $col6, $col7, $col8, $col9, $col10, $col11, $col12];
                         $this->load->view('layout/header');
                         $this->load->view('home/riwayat-harga', $arr);
