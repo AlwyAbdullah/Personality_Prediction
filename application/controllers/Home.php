@@ -5,13 +5,16 @@ class Home extends CI_Controller
 {
     public function index()
     {
-        //
-    }
-
-    public function profilPasar()
-    {
         $this->load->view('layout/header');
         $this->load->view('home/profil-pasar');
         $this->load->view('layout/footer');
     }
+
+    public function rekomendasi()
+    {
+        $this->load->view('layout/header');
+        $this->load->view('home/rekomendasi');
+        $this->load->view('layout/footer');
+    }
 }
+?>
