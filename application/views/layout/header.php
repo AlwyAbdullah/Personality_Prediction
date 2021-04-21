@@ -30,7 +30,7 @@
 
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
-
+    <script src="<?= base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
 </head>
 
 <body>
@@ -67,16 +67,13 @@
                         </ul>
                     </li> -->
 
-                    <li><a href="#">Profil Pasar</a></li>
-                    <li><a href="#">Riwayat Harga</a></li>
+                    <li><a href="<?= base_url() ?>home/profilPasar">Profil Pasar</a></li>
+                    <li><a href="<?= base_url() ?>home/riwayatHarga">Riwayat Harga</a></li>
                     <li><a href="#">Rekomendasi</a></li>
 
                 </ul>
 
             </nav><!-- .nav-menu -->
-
-            <a href="index.html" class="get-started-btn ml-auto">Get Started</a>
-
         </div>
     </header><!-- End Header -->
 

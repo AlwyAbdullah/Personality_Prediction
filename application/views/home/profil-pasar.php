@@ -156,4 +156,4 @@
          </div>
 
      </div>
- </section><!-- End About Section -->
+ </div>
