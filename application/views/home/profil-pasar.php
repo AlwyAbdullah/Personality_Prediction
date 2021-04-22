@@ -1,18 +1,15 @@
  <!-- ======= Breadcrumbs ======= -->
  <section id="breadcrumbs" class="breadcrumbs">
      <div class="container">
-
          <div class="d-flex justify-content-between align-items-center">
              <h2>Profil Pasar</h2>
              <ol>
-                 <li><a href="<?= base_url() ?>">Home</a></li>
+                 <li><a href="<?= base_url(); ?>home/rekomendasi">Home</a></li>
                  <li>Profil Pasar</li>
              </ol>
          </div>
-
      </div>
  </section><!-- End Breadcrumbs -->
-
  <div class="container mt-3 mb-3">
      <div id="accordion">
          <div class="row">
@@ -36,7 +33,7 @@
                      <div class="card-header" id="headingTwo">
                          <h5 class="mb-0">
 
-                             <button class="btn btn-link nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                  Pasar Klojen
                              </button>
                          </h5>
@@ -50,7 +47,7 @@
                  <div class="card">
                      <div class="card-header" id="headingThree">
                          <h5 class="mb-0">
-                             <button class="btn btn-link nav-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                  Pasar Blimbing
                              </button>
                          </h5>
@@ -64,7 +61,7 @@
                  <div class="card">
                      <div class="card-header" id="headingFour">
                          <h5 class="mb-0">
-                             <button class="btn btn-link nav-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                  Pasar Oro-Oro Dowo
                              </button>
                          </h5>
@@ -78,7 +75,7 @@
                  <div class="card">
                      <div class="card-header" id="headingFive">
                          <h5 class="mb-0">
-                             <button class="btn btn-link nav-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                                  Pasar Tawangwangu
                              </button>
                          </h5>
