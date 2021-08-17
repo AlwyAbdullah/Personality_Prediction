@@ -39,7 +39,7 @@
     <header id="header" class="fixed-top header-inner-pages">
         <div class="container d-flex align-items-center">
 
-            <h1 class="logo"><a href="index.html">Pnltian</a></h1>
+            <h1 class="logo"><a href="index.html">Penelitian</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 

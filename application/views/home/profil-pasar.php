@@ -92,10 +92,6 @@
                      <li><i class="ri-check-double-line"></i> Bawang Merah</li>
                      <li><i class="ri-check-double-line"></i> Bawang Putih</li> -->
                  </ul>
-                 <p class="font-italic">
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                     magna aliqua.
-                 </p>
              </div>
          </div>
          <p class="mt-3 mb-3">
