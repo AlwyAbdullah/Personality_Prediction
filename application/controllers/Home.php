@@ -16,6 +16,13 @@ class Home extends CI_Controller
         $this->load->view('layout/footer');
     }
 
+    public function profilPasar()
+    {
+        $this->load->view('layout/header');
+        $this->load->view('home/profil-pasar');
+        $this->load->view('layout/footer');
+    }
+
     public function riwayatHarga()
     {
         if (empty($_POST["filter_tanggal"]) && empty($_POST["nama_pasar"])) {
@@ -42,4 +49,3 @@ class Home extends CI_Controller
         }
     }
 }
-?>
