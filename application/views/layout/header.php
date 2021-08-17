@@ -69,7 +69,7 @@
 
                     <li><a href="<?= base_url() ?>home/profilPasar">Profil Pasar</a></li>
                     <li><a href="<?= base_url() ?>home/riwayatHarga">Riwayat Harga</a></li>
-                    <li><a href="#">Rekomendasi</a></li>
+                    <li><a href="<?= base_url() ?>home/rekomendasi">Rekomendasi</a></li>
 
                 </ul>
 
