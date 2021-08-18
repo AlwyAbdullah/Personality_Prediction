@@ -13,22 +13,19 @@ class Home extends CI_Controller
     public function index()
     {
         $this->load->view('layout/header');
-        $this->load->view('home/profil-pasar');
-        $this->load->view('layout/footer');
+        $this->load->view('home/home');
     }
 
     public function rekomendasi()
     {
         $this->load->view('layout/header');
         $this->load->view('home/rekomendasi');
-        $this->load->view('layout/footer');
     }
 
     public function profilPasar()
     {
         $this->load->view('layout/header');
         $this->load->view('home/profil-pasar');
-        $this->load->view('layout/footer');
     }
 
     public function riwayatHarga()
@@ -36,7 +33,6 @@ class Home extends CI_Controller
         if (empty($_POST["filter_tanggal"]) && empty($_POST["nama_pasar"])) {
             $this->load->view('layout/header');
             $this->load->view('home/riwayat-harga');
-            $this->load->view('layout/footer');
         } else {
             $date = $_POST["filter_tanggal"];
             $pasar = $_POST["nama_pasar"];
@@ -49,7 +45,6 @@ class Home extends CI_Controller
                         $arr['data_harga'] = [$col1, $col2, $col3, $col4, $col5, $col6, $col7, $col8, $col9, $col10, $col11, $col12];
                         $this->load->view('layout/header');
                         $this->load->view('home/riwayat-harga', $arr);
-                        $this->load->view('layout/footer');
                         break;
                     }
                 }

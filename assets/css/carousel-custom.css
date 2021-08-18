@@ -1,0 +1,28 @@
+.carousel-item {
+	height: 87vh;
+	background: no-repeat center center scroll;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin: auto;
+}
+
+#carousel1 {
+	background-image: url("../img/Pasar-1.jpg");
+	background-size: cover;
+}
+
+#carousel2 {
+	background-image: url("../img/Pasar-2.jpg");
+	background-size: cover;
+}
+
+#carousel3 {
+	background-image: url("../img/Pasar-3.jpg");
+	background-size: cover;
+}
+
+div.carousel {
+	margin-top: 87px;
+}

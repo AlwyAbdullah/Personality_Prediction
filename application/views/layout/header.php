@@ -27,9 +27,12 @@
     <link href="<?= base_url() ?>assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/vendor/venobox/venobox.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/css/carousel-custom.css" rel="stylesheet">
+
+
 
     <!-- Template Main CSS File -->
-    <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
     <script src="<?= base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
 </head>
 
@@ -39,34 +42,14 @@
     <header id="header" class="fixed-top header-inner-pages">
         <div class="container d-flex align-items-center">
 
-            <h1 class="logo"><a href="index.html">Penelitian</a></h1>
+            <h1 class="logo"><a href="<?= base_url() ?>home/">Penelitian</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
             <nav class="nav-menu d-none d-lg-block">
 
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-
-                    <!-- Example dropdown -->
-                    <!-- <li class="drop-down"><a href="#">About</a>
-                        <ul>
-                            <li class="active"><a href="about.html">About Us</a></li>
-                            <li><a href="team.html">Team</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-
-                            <li class="drop-down"><a href="#">Deep Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li> -->
-
+                    <li><a href="<?= base_url() ?>home/">Home</a></li>
                     <li><a href="<?= base_url() ?>home/profilPasar">Profil Pasar</a></li>
                     <li><a href="<?= base_url() ?>home/riwayatHarga">Riwayat Harga</a></li>
                     <li><a href="<?= base_url() ?>home/rekomendasi">Rekomendasi</a></li>
