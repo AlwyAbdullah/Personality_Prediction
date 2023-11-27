@@ -115,7 +115,7 @@ $config['enable_hooks'] = FALSE;
 | https://codeigniter.com/user_guide/general/creating_libraries.html
 |
 */
-$config['subclass_prefix'] = 'MY_';
+$config['subclass_prefix'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -522,3 +522,6 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+// Add this line to allow the assets folder to be accessible
+$config['assets_folder'] = 'application/views/home/static/';

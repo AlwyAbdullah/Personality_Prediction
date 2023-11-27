@@ -8,14 +8,211 @@ class Home extends CI_Controller
         parent::__construct();
         date_default_timezone_set('Asia/Jakarta');
         $this->load->model('Home_model');
+        $this->load->model('CsvModel');
     }
 
     public function index()
     {
-        $this->load->view('layout/header');
-        $this->load->view('home/home');
-        $this->load->view('layout/footer');
+        $input_data = $this->input->post('text');
+        // $input_data = $this->request->getVar('text');
+        if (empty($input_data)) {
+            // $remoteServerUrl = 'https://alwiabdullah.pythonanywhere.com/run-python-script';
+            // $response = file_get_contents($remoteServerUrl, false, stream_context_create([
+            //     'http' => ['method' => 'POST']
+            // ]));
+
+            // echo $response;
+
+            $remoteServerUrl = 'https://alwiabdullah.pythonanywhere.com/run-python-script';
+            $parameter = 'example_parameter';
+
+            $data = ['parameter' => $parameter];
+
+            $options = [
+                'http' => [
+                    'method' => 'POST',
+                    'header' => 'Content-Type: application/json',
+                    'content' => json_encode($data)
+                ]
+            ];
+
+            $context = stream_context_create($options);
+            $response = file_get_contents($remoteServerUrl, false, $context);
+
+            $responseData = json_decode($response, true);
+
+            // echo "Response from remote server:\n";
+            // echo $responseData['result'];
+
+            $this->load->view('home/dummy');
+        } else {
+            // $remoteServerUrl = 'https://alwiabdullah.pythonanywhere.com/';
+            // $response = file_get_contents($remoteServerUrl, false, stream_context_create([
+            //     'http' => ['method' => 'POST']
+            // ]));
+
+            // echo $response;
+
+            // $remoteServerUrl = 'https://alwiabdullah.pythonanywhere.com/run-python-script';
+            // $parameter = 'example_parameter';
+
+            // $data = ['parameter' => $input_data];
+
+            // $options = [
+            //     'http' => [
+            //         'method' => 'POST',
+            //         'header' => 'Content-Type: application/json',
+            //         'content' => json_encode($data)
+            //     ]
+            // ];
+
+            // $context = stream_context_create($options);
+            // $response = file_get_contents($remoteServerUrl, false, $context);
+
+            // $responseData = json_decode($response, true);
+
+            // echo "Response from remote server:\n";
+            // echo $responseData['result'];
+
+            // $data['predictions'] = $responseData['result'];
+
+
+            $remoteServerUrl = 'https://alwiabdullah.pythonanywhere.com/run-python-script';
+            $parameter = 'example_parameter';
+
+            $data = ['parameter' => $input_data];
+
+            $ch = curl_init($remoteServerUrl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+            $response = curl_exec($ch);
+
+            if ($response === false) {
+                echo "cURL Error: " . curl_error($ch);
+            } else {
+                // echo "Response from remote server:\n";
+                // echo $response;
+            }
+            
+            curl_close($ch);
+
+            // FILE ASLI
+            // Execute the Python script and capture the output
+            // $command = 'python C:/xampp/htdocs/Personality_Prediction/application/views/home/python_app.py "' . $input_data . '"';
+            // $output = shell_exec($command);
+
+            // // Pass the output to the view
+            $data['predictions'] = $response;
+
+
+            // Load the view to display the predictions
+            $this->load->view('home/dummy', $data);
+        }
     }
+
+    public function jobdesc()
+    {
+        $input_data = $this->input->post('jobdesc');
+        // $input_data = $this->request->getVar('text');
+        if (empty($input_data)) {
+            // echo "GO";
+            $this->load->view('home/dummy');
+        } else {
+            // Execute the Python script and capture the output
+            $command = 'python C:/xampp/htdocs/Personality_Prediction/application/views/home/python_app_jobdesc.py "' . $input_data . '"';
+            $output = shell_exec($command);
+
+            // Pass the output to the view
+            $data['job'] = $output;
+
+            // Load the view to display the predictions
+            // echo "GO";
+            $this->load->view('home/dummy', $data);
+        }
+    }
+
+    public function pdf_save()
+    {
+        $config['upload_path'] = './application/views/home/static/pdf/';
+        $config['allowed_types'] = 'pdf';
+        $config['max_size'] = 10485; // 10mb
+        $config['remove_spaces'] = FALSE; // Preserve spaces in file names
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('file')) {
+            $error = $this->upload->display_errors();
+            echo $error;
+        } else {
+            require('class.pdf2text.php');
+            extract($_POST);
+            $file = $_FILES['file'];
+
+            // Get the file name
+            $fileName = $file['name'];
+
+            $a = new PDF2Text();
+            $a->setFilename($_FILES['file']['tmp_name']);
+            $a->decodePDF();
+            // echo $a->output();
+
+            $remoteServerUrl = 'https://alwiabdullah.pythonanywhere.com/run-python-script';
+
+            $data = ['parameter' => $a->output()];
+
+            $ch = curl_init($remoteServerUrl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+            $response = curl_exec($ch);
+
+            if ($response === false) {
+                echo "cURL Error: " . curl_error($ch);
+            } else {
+                // echo "Response from remote server:\n";
+                // echo $response;
+            }
+            
+            curl_close($ch);
+
+            $data['predictions_pdf'] = $response;
+
+            // die();
+
+            // $command = 'python C:/xampp/htdocs/Personality_Prediction/application/views/home/python_app_pdf.py "' . $fileName . '"';
+            // $output2 = shell_exec($command);
+
+            // $data['predictions_pdf'] = $output2;
+            // Delete the file
+            $filePath = './application/views/home/static/pdf/' . $fileName;
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            } else {
+                echo 'File does not exist.';
+            }
+            $this->load->view('home/dummy', $data);
+        }
+    }
+
+    // public function process_data()
+    // {
+    //     $input_data = $this->input->post('text');
+
+    //     // Execute the Python script and capture the output
+    //     $command = 'python C:/xampp/htdocs/Penelitian_2021/application/views/home/python_app.py "' . $input_data . '"';
+    //     $output = shell_exec($command);
+
+    //     // Pass the output to the view
+    //     $data['predictions'] = $output;
+
+    //     // Load the view to display the predictions
+    //     $this->load->view('home/predictions_view', $data);
+    // }
 
     public function rekomendasi()
     {
